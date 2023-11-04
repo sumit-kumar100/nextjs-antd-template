@@ -17,20 +17,20 @@ This project was bootstrapped with Create Next App and comes with Ant Design's U
 ## Setup
 
 - Make sure you have Node.js installed on your system.
-- Clone this repository.
-   ```bash
-   git clone https://github.com/sumit-kumar100/nextjs-antd-template.git
 - The frontend will be accessible at http://localhost:3000
 
-1. Change to the frontend directory.
+1. Clone this repository.
+   ```bash
+   git clone https://github.com/sumit-kumar100/nextjs-antd-template.git
+2. Change to the frontend directory.
    ```bash
    cd nextjs-antd-template
-2. Install the required Node.js packages.
+3. Install the required Node.js packages.
    ```bash
    yarn install
    # OR
    npm install
-3. Start the server.
+4. Start the server.
    ```bash
    yarn preview
    # OR
