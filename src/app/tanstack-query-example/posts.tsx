@@ -1,8 +1,10 @@
 "use client";
+
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getColumns } from "./columns";
 import DataTable, { useTable } from "@/components/ui/data-table";
+import { Box, Text } from "@/components/ui";
 
 async function fetchPosts(filters: Object, offset: number, limit: number) {
   const response = await axios.get(
@@ -18,7 +20,7 @@ async function fetchPosts(filters: Object, offset: number, limit: number) {
   return response.data;
 }
 
-export default function UserForm() {
+export default function TanstackExamplePosts() {
   const {
     pagination: { limit, offset, onPaginationChange },
     searchFilters: { filters, onFilterChange },
@@ -30,7 +32,25 @@ export default function UserForm() {
   });
 
   return (
-    <main>
+    <Box>
+      <Text
+        style={{
+          display: "block",
+          fontSize: 20,
+          fontWeight: "bold",
+          textAlign: "center",
+        }}
+      >
+        Tanstack Example Posts - Server Side Pagination & Filters
+      </Text>
+      <Text style={{ display: "block", textAlign: "center" }}>
+        Table filters are implemented correctly and is working, but
+        jsonplaceholder doesn't support filtering using query params. Hence data
+        will be empty while searching columns.
+        <br />
+        To Ensure, you can inspect network-tab to ensure api's call are being
+        made.
+      </Text>
       <DataTable
         loading={isLoading}
         dataSource={data}
@@ -45,6 +65,6 @@ export default function UserForm() {
           total: 100,
         }}
       />
-    </main>
+    </Box>
   );
 }

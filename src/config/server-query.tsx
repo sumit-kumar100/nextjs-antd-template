@@ -1,7 +1,7 @@
+import axios from "axios";
 import { cookies } from "next/headers";
 import { API_BASE_URL, STALE_TIME } from "@/constants/globals";
 import { QueryClient } from "@tanstack/query-core";
-import axios from "axios";
 
 /*
   if any occurs happens while fetching data from server that will be handled on client-side @tanstack/queryClient.

@@ -37,15 +37,6 @@ const DataTable: React.FC<AntdTableProps<any>> = ({
           total={pagination.total}
           showSizeChanger={false}
           onChange={pagination.onPaginationChange}
-          itemRender={(page: number, type: string) => {
-            if (type === "prev") {
-              return <span>Prev</span>;
-            } else if (type === "next") {
-              return <span>Next</span>;
-            } else {
-              return <span>{page}</span>;
-            }
-          }}
         />
       )}
     </React.Fragment>

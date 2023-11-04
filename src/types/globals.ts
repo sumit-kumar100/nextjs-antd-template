@@ -2,12 +2,6 @@ export type NextComponent = any;
 
 export type NextProps = any;
 
-export type Params = {
-  [key: string]: any;
-};
-
-export type SearchParams = any;
-
 export type NextPageProps = {
   params: Params;
   searchParams: SearchParams;
@@ -19,10 +13,11 @@ export type NextErrorProps = {
   statusCode: number;
 };
 
-export type FormProps<T> = {
-  defaultValues: T;
-  onSubmit: () => void;
+export type Params = {
+  [key: string]: any;
 };
+
+export type SearchParams = any;
 
 export type Routes = {
   [key: string]: string;

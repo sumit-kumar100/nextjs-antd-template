@@ -9,7 +9,7 @@ import Divider from "./divider";
 import Flex from "./flex";
 import Input from "./input";
 import Spinner from "./spinner";
-import { TextFilter } from "./filters";
+import TextFilter from "./filters/text";
 import { Form, FormItem, FormList } from "./form";
 import { Row, Col } from "./grid";
 import { Header, Footer, Sider, Content } from "./layout";
