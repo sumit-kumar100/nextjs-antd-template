@@ -2,9 +2,9 @@
 
 import React from "react";
 
-import { TextProps } from "antd/lib/typography/Text";
-import { TitleProps } from "antd/lib/typography/Title";
-import { ParagraphProps } from "antd/lib/typography/Paragraph";
+import { TextProps as AntdTextProps } from "antd/lib/typography/Text";
+import { TitleProps as AntdTitleProps } from "antd/lib/typography/Title";
+import { ParagraphProps as AntdParagraphProps } from "antd/lib/typography/Paragraph";
 import dynamic from "next/dynamic";
 
 const AntdText = dynamic(() =>
@@ -19,16 +19,22 @@ const AntdParagraph = dynamic(() =>
   import("antd/lib/typography").then((module) => module.default.Paragraph),
 );
 
-const Text: React.FC<TextProps> = (props) => {
+const Text: React.FC<AntdTextProps> = (props) => {
   return <AntdText {...props} />;
 };
 
-const Title: React.FC<TitleProps> = (props) => {
+const Title: React.FC<AntdTitleProps> = (props) => {
   return <AntdTitle {...props} />;
 };
 
-const Paragraph: React.FC<ParagraphProps> = (props) => {
+const Paragraph: React.FC<AntdParagraphProps> = (props) => {
   return <AntdParagraph {...props} />;
 };
+
+export type TextProps = AntdTextProps;
+
+export type TitleProps = AntdTitleProps;
+
+export type ParagraphProps = AntdParagraphProps;
 
 export { Text, Title, Paragraph };

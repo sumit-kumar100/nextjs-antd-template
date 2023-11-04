@@ -1,23 +1,21 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
 import { cn } from "@/utils/tailwind";
+import dynamic from "next/dynamic";
 
 interface NextImageProps {
   src: string;
   alt: string;
-  height?: number | `${number}` | undefined;
-  width?: number | `${number}` | undefined;
   style?: object;
   className?: string;
 }
 
+const Image = dynamic(() => import("next/image"));
+
 const NextImage: React.FC<NextImageProps> = ({
   src,
   alt,
-  height,
-  width,
   style,
   className,
   ...props
@@ -42,13 +40,13 @@ const NextImage: React.FC<NextImageProps> = ({
         ...style,
       };
     }
-  }, [className, height, style, width]);
+  }, [className, style]);
 
   return (
     <Image
       alt={alt}
-      width={width || 75}
-      height={height || 75}
+      width={100}
+      height={100}
       sizes="100vw"
       style={styles}
       src={src}

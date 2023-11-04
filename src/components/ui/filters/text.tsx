@@ -3,12 +3,12 @@
 import { useState, useCallback } from "react";
 import { Input } from "@/components/ui";
 
-interface TextFilterProps {
+interface AntdTextFilterProps {
   filterName: string;
   onFilterChange: (searchFilterObj: Object) => void;
 }
 
-const TextFilter: React.FC<TextFilterProps> = ({
+const TextFilter: React.FC<AntdTextFilterProps> = ({
   filterName,
   onFilterChange,
 }) => {
@@ -43,5 +43,7 @@ const TextFilter: React.FC<TextFilterProps> = ({
     <Input value={value} allowClear placeholder="Search" onChange={onChange} />
   );
 };
+
+export type TextFilterProps = AntdTextFilterProps;
 
 export default TextFilter;

@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface AntdSpinnerProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const loaderStyles = (
   <style>
@@ -42,12 +42,14 @@ export const loaderStyles = (
   </style>
 );
 
-const Spinner: React.FC<SpinnerProps> = (props) => {
+const Spinner: React.FC<AntdSpinnerProps> = (props) => {
   return (
     <div {...props} className="loader-container">
       <div className="loader">{loaderStyles}</div>
     </div>
   );
 };
+
+export type SpinnerProps = AntdSpinnerProps;
 
 export default Spinner;

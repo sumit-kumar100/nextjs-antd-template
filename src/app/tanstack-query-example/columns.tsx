@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Text, TextFilter } from "@/components/ui";
+import { Flex, Text, TextFilter } from "@/components/ui";
 import { ColumnsType, FilterProps } from "@/components/ui/types";
 
 interface DataType {
@@ -14,42 +14,42 @@ interface DataType {
 export const getColumns = (props: FilterProps): ColumnsType<DataType> => {
   return [
     {
+      key: "id",
       title: () => (
-        <Box>
-          <Text className="block text-center">ID</Text>
-          <TextFilter
+        <Flex vertical justify="center" align="center" gap={4}>
+          <Text>ID</Text>
+          {/* <TextFilter
             filterName="title"
             onFilterChange={props.onFilterChange}
-          />
-        </Box>
+          /> */}
+        </Flex>
       ),
       dataIndex: "id",
-      key: "id",
       render: (text) => <span>{text}</span>,
     },
     {
+      key: "title",
       title: () => (
-        <Box>
-          <Text className="block text-center">Title</Text>
+        <Flex vertical justify="center" align="center" gap={4}>
+          <Text>Title</Text>
           <TextFilter
             filterName="title"
             onFilterChange={props.onFilterChange}
           />
-        </Box>
+        </Flex>
       ),
       dataIndex: "title",
-      key: "title",
       render: (text) => <span>{text.slice(0, 50)}</span>,
     },
     {
+      key: "body",
       title: () => (
-        <Box>
-          <Text className="block text-center">Body</Text>
+        <Flex vertical justify="center" align="center" gap={4}>
+          <Text>Body</Text>
           <TextFilter filterName="body" onFilterChange={props.onFilterChange} />
-        </Box>
+        </Flex>
       ),
       dataIndex: "body",
-      key: "body",
       render: (text) => <span>{text.slice(0, 50)}</span>,
     },
   ];

@@ -85,13 +85,12 @@ const NextProgress = () => {
       }
       return false;
     }
-
-    // eslint-disable-next-line no-var
     var npgclass = document.querySelectorAll("html");
     function findClosestAnchor(
       element: HTMLElement | null,
     ): HTMLAnchorElement | null {
-      while (element && element.tagName.toLowerCase() !== "a") {
+      const anchorElement = element?.getAttribute("href") ? "a" : "";
+      while (element && element.tagName.toLowerCase() !== anchorElement) {
         element = element.parentElement;
       }
       return element as HTMLAnchorElement;
@@ -121,7 +120,6 @@ const NextProgress = () => {
                 [].forEach.call(npgclass, function (el: Element) {
                   el.classList.remove("nprogress-busy");
                 });
-                // eslint-disable-next-line prefer-rest-params
                 return pushState.apply(history, arguments as any);
               };
             })(window.history);
