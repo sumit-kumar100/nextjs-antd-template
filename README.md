@@ -20,10 +20,7 @@ This project was bootstrapped with Create Next App and comes with Ant Design's U
 - Clone this repository.
    ```bash
    git clone https://github.com/sumit-kumar100/nextjs-antd-template.git
-
-## Setup
-
-The frontend will be accessible at http://localhost:3000
+- The frontend will be accessible at http://localhost:3000
 
 1. Change to the frontend directory.
    ```bash
