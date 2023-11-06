@@ -4,7 +4,7 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 const nextConfig = {
     reactStrictMode: false,
     images: {
-        domains: ["okinawascooters.com", "www.eveez.in"],
+        domains: ["gw.alipayobjects.com"],
     }
 }
 

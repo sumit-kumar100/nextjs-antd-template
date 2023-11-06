@@ -12,7 +12,7 @@ export interface ActionType {
   payload: Filters;
 }
 
-export interface FilterProps {
+export interface CustomFilterProps {
   filters: Filters;
   onFilterChange: (newFilters: Filters) => void;
 }
@@ -57,7 +57,7 @@ const reducer = (state: Filters, action: ActionType): Filters => {
   }
 };
 
-const useFilters = (defaultFilters: Filters = {}): FilterProps => {
+const useFilters = (defaultFilters: Filters = {}): CustomFilterProps => {
   const [filters, dispatch] = useReducer(reducer, defaultFilters);
 
   const onFilterChange = (newFilters: Filters) => {

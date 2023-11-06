@@ -3,8 +3,8 @@
 import * as React from "react";
 import NextLoader from "@/components/next-loader";
 import NextProgress from "@/components/next-progress";
+import AntdConfigProvider from "@/components/ui/config-provider";
 import { theme } from "@/constants/themes";
-import { ConfigProvider as AntdThemeProvider } from "antd";
 import { QueryClientProvider as ClientSideRendering } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
@@ -30,12 +30,12 @@ export function ClientProvider({ children }: { children: React.ReactNode }) {
   return (
     <ClientSideRendering client={queryClient}>
       <AntdCahceProvider cache={cache}>
-        <AntdThemeProvider theme={theme}>
+        <AntdConfigProvider theme={theme}>
           {children}
           <NextLoader />
           <NextProgress />
           <ReactQueryDevtools initialIsOpen={false} />
-        </AntdThemeProvider>
+        </AntdConfigProvider>
       </AntdCahceProvider>
     </ClientSideRendering>
   );

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { setCookie } from "cookies-next";
 
-export interface PaginationProps {
+export interface CustomPaginationProps {
   offset: number;
   limit: number;
   onPaginationChange(offset: number, limit: number): void;
@@ -12,7 +12,7 @@ export interface PaginationProps {
 const usePagination = (
   defaultOffset = 1,
   defaultLimit = 5,
-): PaginationProps => {
+): CustomPaginationProps => {
   const [offset, setOffset] = useState(defaultOffset);
   const [limit, setLimit] = useState(defaultLimit);
 

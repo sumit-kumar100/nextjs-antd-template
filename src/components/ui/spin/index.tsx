@@ -1,8 +1,30 @@
 "use client";
 
 import React from "react";
+import { SpinProps as AntdSpinProps } from "antd/lib/spin";
+import dynamic from "next/dynamic";
 
-interface AntdSpinnerProps extends React.HTMLAttributes<HTMLDivElement> {}
+const AntdSpin = dynamic(() => import("antd/lib/spin"));
+
+const Spin: React.FC<AntdSpinProps> = (props) => {
+  return <AntdSpin {...props} />;
+};
+
+interface AntdCustomSpinProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+const CustomSpin: React.FC<AntdCustomSpinProps> = (props) => {
+  return (
+    <div {...props} className="loader-container">
+      <div className="loader">{loaderStyles}</div>
+    </div>
+  );
+};
+
+export type SpinProps = AntdSpinProps;
+
+export type CustomSpinProps = AntdCustomSpinProps;
+
+export { Spin, CustomSpin };
 
 export const loaderStyles = (
   <style>
@@ -41,15 +63,3 @@ export const loaderStyles = (
     `}
   </style>
 );
-
-const Spinner: React.FC<AntdSpinnerProps> = (props) => {
-  return (
-    <div {...props} className="loader-container">
-      <div className="loader">{loaderStyles}</div>
-    </div>
-  );
-};
-
-export type SpinnerProps = AntdSpinnerProps;
-
-export default Spinner;

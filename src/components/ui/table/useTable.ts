@@ -1,18 +1,18 @@
 "use client";
 
-import usePagination, { PaginationProps } from "./usePagination";
-import useFilters, { FilterProps } from "./useFilters";
+import usePagination, { CustomPaginationProps } from "./usePagination";
+import useFilters, { CustomFilterProps } from "./useFilters";
 
-export interface TableProps {
-  pagination: PaginationProps;
-  searchFilters: FilterProps;
+export interface UseTableProps {
+  pagination: CustomPaginationProps;
+  searchFilters: CustomFilterProps;
 }
 
 const useTable = (
   defaultOffset = 1,
   defaultLimit = 5,
   defaultFilters = {},
-): TableProps => {
+): UseTableProps => {
   const { limit, offset, onPaginationChange } = usePagination(
     defaultOffset,
     defaultLimit,

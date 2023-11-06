@@ -3,7 +3,8 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getColumns } from "./columns";
-import DataTable, { useTable } from "@/components/ui/data-table";
+import { Table } from "@/components/ui";
+import { useTable } from "@/components/ui/table";
 import { Box, Text, Flex } from "@/components/ui";
 
 async function fetchPosts(filters: Object, offset: number, limit: number) {
@@ -49,7 +50,7 @@ export default function TanstackExamplePosts() {
           inspect the network tab to ensure API calls are being made.
         </Text>
       </Flex>
-      <DataTable
+      <Table
         loading={isLoading}
         dataSource={data}
         columns={getColumns({

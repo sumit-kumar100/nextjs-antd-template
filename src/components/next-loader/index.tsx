@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useIsFetching, useIsMutating } from "@tanstack/react-query";
-import { Spinner } from "@/components/ui";
+import { CustomSpin } from "@/components/ui";
 import { getCookie, deleteCookie } from "cookies-next";
 
 export default function NextLoader() {
@@ -16,7 +16,7 @@ export default function NextLoader() {
   }, [noLoader]);
 
   if ((isFetching >= 1 || isMutating >= 1) && noLoader !== "true") {
-    return <Spinner />;
+    return <CustomSpin />;
   }
 
   return null;
