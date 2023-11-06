@@ -1,6 +1,6 @@
 import axios from "axios";
 import { cookies } from "next/headers";
-import { API_BASE_URL, STALE_TIME } from "@/constants/globals";
+import { DEFUALT_API_BASE_URL, DEFUALT_STALE_TIME } from "@/constants/globals";
 import { QueryClient } from "@tanstack/query-core";
 
 /*
@@ -14,7 +14,7 @@ export class ServerQuery extends QueryClient {
 
     this.setDefaultOptions({
       queries: {
-        staleTime: STALE_TIME,
+        staleTime: DEFUALT_STALE_TIME,
         retry: false,
         refetchOnMount: false,
         retryOnMount: false,
@@ -27,7 +27,7 @@ export class ServerQuery extends QueryClient {
 
   private setAxiosDefaults() {
     const accessToken = cookies().get("accessToken")?.value;
-    axios.defaults.baseURL = API_BASE_URL;
+    axios.defaults.baseURL = DEFUALT_API_BASE_URL;
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
   }
 }

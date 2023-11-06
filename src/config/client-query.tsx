@@ -1,5 +1,5 @@
 import { notification } from "@/components/next-notification";
-import { API_BASE_URL, STALE_TIME } from "@/constants/globals";
+import { DEFUALT_API_BASE_URL, DEFUALT_STALE_TIME } from "@/constants/globals";
 import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
 import axios, { AxiosResponse } from "axios";
 import { deleteCookie, getCookie, setCookie } from "cookies-next";
@@ -26,7 +26,7 @@ class Client extends QueryClient {
 
     this.setDefaultOptions({
       queries: {
-        staleTime: STALE_TIME,
+        staleTime: DEFUALT_STALE_TIME,
         retry: false,
         refetchOnMount: false,
         retryOnMount: false,
@@ -40,7 +40,7 @@ class Client extends QueryClient {
 
   private setAxiosDefaults() {
     const accessToken = getCookie("accessToken");
-    axios.defaults.baseURL = API_BASE_URL;
+    axios.defaults.baseURL = DEFUALT_API_BASE_URL;
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
   }
 
@@ -72,7 +72,7 @@ class Client extends QueryClient {
   }
 
   private async handleRefreshToken(): Promise<any> {
-    const response = await fetch(API_BASE_URL + "/refresh-token", {
+    const response = await fetch(DEFUALT_API_BASE_URL + "/refresh-token", {
       method: "POST",
       body: JSON.stringify({ refreshToken: getCookie("refreshToken") }),
       headers: {

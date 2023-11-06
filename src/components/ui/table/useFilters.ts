@@ -1,5 +1,6 @@
 "use client";
 
+import { DEFAULT_FILTERS } from "@/constants/globals";
 import { setCookie } from "cookies-next";
 import { useReducer } from "react";
 
@@ -57,8 +58,8 @@ const reducer = (state: Filters, action: ActionType): Filters => {
   }
 };
 
-const useFilters = (defaultFilters: Filters = {}): CustomFilterProps => {
-  const [filters, dispatch] = useReducer(reducer, defaultFilters);
+const useFilters = (): CustomFilterProps => {
+  const [filters, dispatch] = useReducer(reducer, DEFAULT_FILTERS);
 
   const onFilterChange = (newFilters: Filters) => {
     setCookie("no-loader", "true");

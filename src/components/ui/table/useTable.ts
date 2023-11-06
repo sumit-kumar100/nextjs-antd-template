@@ -8,17 +8,10 @@ export interface UseTableProps {
   searchFilters: CustomFilterProps;
 }
 
-const useTable = (
-  defaultOffset = 1,
-  defaultLimit = 5,
-  defaultFilters = {},
-): UseTableProps => {
-  const { limit, offset, onPaginationChange } = usePagination(
-    defaultOffset,
-    defaultLimit,
-  );
+const useTable = (): UseTableProps => {
+  const { limit, offset, onPaginationChange } = usePagination();
 
-  const { filters, onFilterChange } = useFilters(defaultFilters);
+  const { filters, onFilterChange } = useFilters();
 
   return {
     pagination: {

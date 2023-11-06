@@ -1,25 +1,11 @@
 "use client";
 
-import axios from "axios";
+import { fetchPosts } from "./fetch-posts";
 import { useQuery } from "@tanstack/react-query";
 import { getColumns } from "./columns";
 import { Table } from "@/components/ui";
 import { useTable } from "@/components/ui/table";
 import { Box, Text, Flex } from "@/components/ui";
-
-async function fetchPosts(filters: Object, offset: number, limit: number) {
-  const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts",
-    {
-      params: {
-        _limit: limit,
-        _page: offset,
-        ...filters,
-      },
-    },
-  );
-  return response.data;
-}
 
 export default function TanstackExamplePosts() {
   const {
