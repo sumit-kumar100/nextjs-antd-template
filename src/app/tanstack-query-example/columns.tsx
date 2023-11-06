@@ -19,7 +19,7 @@ export const getColumns = (props: CustomFilterProps): ColumnsType<DataType> => {
         <Flex vertical justify="center" align="center" gap={4}>
           <Text>ID</Text>
           <TextFilter
-            filterName="title"
+            filterName="id"
             onFilterChange={props.onFilterChange}
           />
         </Flex>
