@@ -1,4 +1,4 @@
-import { notification } from "@/components/next-notification";
+import notification from "@/components/next-notification";
 import { DEFUALT_API_BASE_URL, DEFUALT_STALE_TIME } from "@/constants/globals";
 import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
 import axios, { AxiosResponse } from "axios";

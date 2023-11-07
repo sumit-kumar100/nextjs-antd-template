@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { Input } from "@/components/ui";
+import Input from "@/components/ui/input";
 
 interface AntdTextFilterProps {
   filterName: string;
@@ -40,7 +40,13 @@ const TextFilter: React.FC<AntdTextFilterProps> = ({
   };
 
   return (
-    <Input value={value} allowClear placeholder="Search" onChange={onChange} />
+    <Input
+      allowClear
+      value={value}
+      onChange={onChange}
+      placeholder="Search"
+      style={{ fontWeight: "normal" }}
+    />
   );
 };
 

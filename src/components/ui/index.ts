@@ -36,6 +36,7 @@ import FloatButton from "./float-button";
 import Image from "./image";
 import Input from "./input";
 import InputNumber from "./input-number";
+import Layout from "./layout";
 import List from "./list";
 import Mention from "./mentions";
 import Menu from "./menu";
@@ -107,6 +108,7 @@ export {
   Image,
   Input,
   InputNumber,
+  Layout,
   List,
   Mention,
   Menu,

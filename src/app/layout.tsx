@@ -1,6 +1,9 @@
 import { ClientProvider } from "@/config/client-provider";
+import { Flex, Layout, Header, Content } from "@/components/ui";
+import { DEFUALT_THEME_COLOR } from "@/constants/globals";
 import { fontPoppins } from "@/utils/fonts";
 import { cn } from "@/utils/tailwind";
+import NextImage from "@/components/next-image";
 import "@/styles/globals.css";
 
 export const metadata = {
@@ -17,11 +20,26 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "bg-background min-h-screen font-sans antialiased",
+          "min-h-screen font-sans antialiased",
           fontPoppins.variable,
         )}
       >
-        <ClientProvider>{children}</ClientProvider>
+        <ClientProvider>
+          <Layout>
+            <Content>
+              <Header style={{ background: DEFUALT_THEME_COLOR }}>
+                <Flex align="center" style={{ height: "100%" }}>
+                  <NextImage
+                    src="/next.svg"
+                    alt="Next.js Logo"
+                    style={{ width: 100 }}
+                  />
+                </Flex>
+              </Header>
+              {children}
+            </Content>
+          </Layout>
+        </ClientProvider>
       </body>
     </html>
   );

@@ -1,17 +1,19 @@
 "use client";
-
 import { fetchPosts } from "./fetch-posts";
 import { useQuery } from "@tanstack/react-query";
 import { getColumns } from "./columns";
 import { Table } from "@/components/ui";
 import { useTable } from "@/components/ui/table";
 import { Box, Text, Flex } from "@/components/ui";
+import { useState } from "react";
 
 export default function TanstackExamplePosts() {
   const {
     pagination: { limit, offset, onPaginationChange },
     searchFilters: { filters, onFilterChange },
   } = useTable();
+
+  const [value, setValue] = useState("");
 
   const { data, isLoading } = useQuery({
     queryKey: ["posts", filters, offset, limit],

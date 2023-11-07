@@ -1,8 +1,10 @@
 "use client";
 
 import { ComponentProps, forwardRef } from "react";
-import NextLink from "next/link";
 import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const NextLink = dynamic(() => import("next/link"));
 
 export default forwardRef<
   HTMLAnchorElement,

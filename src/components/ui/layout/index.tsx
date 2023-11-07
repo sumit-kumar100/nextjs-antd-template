@@ -4,6 +4,8 @@ import React from "react";
 import { BasicProps as AntdBasicProps } from "antd/lib/layout/layout";
 import dynamic from "next/dynamic";
 
+const AntdLayout = dynamic(() => import("antd/lib/layout"));
+
 const AntdHeader = dynamic(() =>
   import("antd/lib/layout").then((module) => module.default.Header),
 );
@@ -19,6 +21,10 @@ const AntdSider = dynamic(() =>
 const AntdContent = dynamic(() =>
   import("antd/lib/layout").then((module) => module.default.Content),
 );
+
+const Layout: React.FC<AntdBasicProps> = (props) => {
+  return <AntdLayout {...props} />;
+};
 
 const Header: React.FC<AntdBasicProps> = (props) => {
   return <AntdHeader {...props} />;
@@ -39,3 +45,5 @@ const Content: React.FC<AntdBasicProps> = (props) => {
 export type BasicProps = AntdBasicProps;
 
 export { Header, Footer, Sider, Content };
+
+export default Layout;

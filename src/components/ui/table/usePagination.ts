@@ -10,8 +10,7 @@ export interface CustomPaginationProps {
   onPaginationChange(offset: number, limit: number): void;
 }
 
-const usePagination = (
-): CustomPaginationProps => {
+const usePagination = (): CustomPaginationProps => {
   const [offset, setOffset] = useState(DEFAULT_OFFSET);
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
 
