@@ -1,22 +1,9 @@
 "use client";
 
 import { DEFAULT_FILTERS } from "@/constants/globals";
+import { Filters, ActionType, FilterProps } from "@/types/hooks";
 import { setCookie } from "cookies-next";
 import { useReducer } from "react";
-
-export interface Filters {
-  [key: string]: any;
-}
-
-export interface ActionType {
-  type: "UPDATE";
-  payload: Filters;
-}
-
-export interface CustomFilterProps {
-  filters: Filters;
-  onFilterChange: (newFilters: Filters) => void;
-}
 
 const reducer = (state: Filters, action: ActionType): Filters => {
   switch (action.type) {
@@ -58,7 +45,7 @@ const reducer = (state: Filters, action: ActionType): Filters => {
   }
 };
 
-const useFilters = (): CustomFilterProps => {
+const useFilters = (): FilterProps => {
   const [filters, dispatch] = useReducer(reducer, DEFAULT_FILTERS);
 
   const onFilterChange = (newFilters: Filters) => {

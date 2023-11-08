@@ -1,7 +1,8 @@
 "use client";
 
 import { Flex, Text, TextFilter } from "@/components/ui";
-import { ColumnsType, CustomFilterProps } from "@/components/ui/types";
+import { ColumnsType } from "@/types/ui";
+import { FilterProps } from "@/types/hooks";
 
 interface DataType {
   key: string;
@@ -11,7 +12,7 @@ interface DataType {
   tags: string[];
 }
 
-export const getColumns = (props: CustomFilterProps): ColumnsType<DataType> => {
+export const getColumns = (props: FilterProps): ColumnsType<DataType> => {
   return [
     {
       key: "id",

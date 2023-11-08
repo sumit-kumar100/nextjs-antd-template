@@ -3,16 +3,13 @@
 import React, { Fragment } from "react";
 import dynamic from "next/dynamic";
 import AntdPagiation from "@/components/ui/pagination";
-import usePagination from "./usePagination";
-import useFilters from "./useFilters";
-import useTable from "./useTable";
 import { Flex } from "@/components/ui";
-import { CustomPaginationProps } from "./usePagination";
+import { PaginationProps } from "@/types/hooks/pagination";
 import { TableProps as AntdTableProps } from "antd/lib/table";
-import type { ColumnsType as AntdColumnsType } from "antd/es/table";
+import type { ColumnsType } from "antd/es/table";
 
 interface AntdDataTableProps<T> extends AntdTableProps<T> {
-  pagination?: CustomPaginationProps & { total: number };
+  pagination?: PaginationProps & { total: number };
 }
 
 const AntdTable = dynamic(() => import("antd/lib/table"));
@@ -49,10 +46,8 @@ const Table: React.FC<AntdDataTableProps<any>> = ({
   );
 };
 
-export type ColumnsType<T> = AntdColumnsType<T>;
+export type TableColumnsType<T> = ColumnsType<T>;
 
 export type TableProps = AntdDataTableProps<any>;
 
 export default Table;
-
-export { usePagination, useFilters, useTable };

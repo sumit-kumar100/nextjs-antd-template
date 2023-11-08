@@ -1,4 +1,4 @@
-export const globalLight = {
+export const themeLight = {
   colorPrimaryBg: "#91a199",
   colorPrimaryBgHover: "#5f947b",
   colorPrimaryBorder: "#418769",
@@ -60,7 +60,7 @@ export const globalLight = {
   colorBgMask: "rgba(0, 0, 0, 0.45)",
 };
 
-export const globalDark = {
+export const themeDark = {
   colorPrimaryBg: "#111413",
   colorPrimaryBgHover: "#0f1e19",
   colorPrimaryBorder: "#0e2b22",

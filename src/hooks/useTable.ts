@@ -1,14 +1,10 @@
 "use client";
 
-import usePagination, { CustomPaginationProps } from "./usePagination";
-import useFilters, { CustomFilterProps } from "./useFilters";
+import useFilters from "./useFilters";
+import usePagination from "./usePagination";
+import { TableProps } from "@/types/hooks";
 
-export interface UseTableProps {
-  pagination: CustomPaginationProps;
-  searchFilters: CustomFilterProps;
-}
-
-const useTable = (): UseTableProps => {
+const useTable = (): TableProps => {
   const { limit, offset, onPaginationChange } = usePagination();
 
   const { filters, onFilterChange } = useFilters();

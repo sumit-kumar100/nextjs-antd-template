@@ -1,9 +1,9 @@
 import type { ThemeConfig } from "antd";
-import { globalLight, globalDark } from "./global";
+import { themeLight, themeDark } from "./theme";
 
 export const theme: ThemeConfig = {
   token: {
-    ...globalLight,
+    ...themeLight,
   },
   components: {
     DatePicker: {

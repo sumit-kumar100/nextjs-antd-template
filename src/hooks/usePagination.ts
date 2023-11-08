@@ -2,15 +2,10 @@
 
 import { useState } from "react";
 import { setCookie } from "cookies-next";
+import { PaginationProps } from "@/types/hooks";
 import { DEFAULT_LIMIT, DEFAULT_OFFSET } from "@/constants/globals";
 
-export interface CustomPaginationProps {
-  offset: number;
-  limit: number;
-  onPaginationChange(offset: number, limit: number): void;
-}
-
-const usePagination = (): CustomPaginationProps => {
+const usePagination = (): PaginationProps => {
   const [offset, setOffset] = useState(DEFAULT_OFFSET);
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
 

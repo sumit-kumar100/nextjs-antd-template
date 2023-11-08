@@ -4,11 +4,6 @@ import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
 import axios, { AxiosResponse } from "axios";
 import { deleteCookie, getCookie, setCookie } from "cookies-next";
 
-interface RefreshToken {
-  accessToken: string;
-  refreshToken: string;
-}
-
 class Client extends QueryClient {
   constructor() {
     super({
@@ -87,7 +82,10 @@ class Client extends QueryClient {
     }
   }
 
-  private handleReAuthorized(data: RefreshToken) {
+  private handleReAuthorized(data: {
+    accessToken: string;
+    refreshToken: string;
+  }) {
     setCookie("accessToken", data.accessToken);
     setCookie("refreshToken", data.refreshToken);
   }

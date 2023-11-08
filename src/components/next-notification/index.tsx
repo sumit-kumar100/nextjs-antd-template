@@ -43,6 +43,6 @@ const info = async (args: ArgsProps) => {
   });
 };
 
-const notification = { error, success, warning, info }
+const notification = { error, success, warning, info };
 
 export default notification;
