@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 import dynamic from "next/dynamic";
 import AntdPagiation from "@/components/ui/pagination";
 import { Flex } from "@/components/ui";
-import { PaginationProps } from "@/types/hooks/pagination";
+import { PaginationProps } from "@/types/hooks";
 import { TableProps as AntdTableProps } from "antd/lib/table";
 import type { ColumnsType } from "antd/es/table";
 
