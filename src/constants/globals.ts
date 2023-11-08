@@ -1,4 +1,4 @@
-export const DEFAULT_FILTERS: Object = {};
+export const DEFAULT_FILTERS: Record<string, any> = {};
 export const DEFAULT_LIMIT: number = 5;
 export const DEFAULT_OFFSET: number = 1;
 export const DEFUALT_STALE_TIME: number = 300000;

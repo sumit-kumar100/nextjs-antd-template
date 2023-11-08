@@ -1,9 +1,10 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import NextLoader from "@/components/next-loader";
 import NextProgress from "@/components/next-progress";
 import AntdConfigProvider from "@/components/ui/config-provider";
+import { useState, useMemo } from "react";
 import { theme } from "@/constants/themes";
 import { QueryClientProvider as ClientSideRendering } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -17,9 +18,9 @@ import { useServerInsertedHTML } from "next/navigation";
 import { ClientQuery } from "./client-query";
 
 export function ClientProvider({ children }: { children: React.ReactNode }) {
-  const [queryClient] = React.useState(() => new ClientQuery());
+  const [queryClient] = useState(() => new ClientQuery());
 
-  const cache = React.useMemo<Entity>(() => createCache(), []);
+  const cache = useMemo<Entity>(() => createCache(), []);
   useServerInsertedHTML(() => (
     <style
       id="antd"

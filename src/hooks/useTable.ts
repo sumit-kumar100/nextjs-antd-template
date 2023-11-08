@@ -1,13 +1,13 @@
 "use client";
 
-import useFilters from "./useFilters";
+import useFilters from "./useFilter";
 import usePagination from "./usePagination";
 import { TableProps } from "@/types/hooks";
 
 const useTable = (): TableProps => {
   const { limit, offset, onPaginationChange } = usePagination();
 
-  const { filters, onFilterChange } = useFilters();
+  const { params, onFilterChange } = useFilters();
 
   return {
     pagination: {
@@ -15,8 +15,8 @@ const useTable = (): TableProps => {
       offset,
       onPaginationChange,
     },
-    searchFilters: {
-      filters,
+    filter: {
+      params,
       onFilterChange,
     },
   };

@@ -1,11 +1,14 @@
 "use client";
 
 import { DEFAULT_FILTERS } from "@/constants/globals";
-import { Filters, ActionType, FilterProps } from "@/types/hooks";
+import { FilterProps, FilterActionType } from "@/types/hooks";
 import { setCookie } from "cookies-next";
 import { useReducer } from "react";
 
-const reducer = (state: Filters, action: ActionType): Filters => {
+const reducer = (
+  state: Record<string, any>,
+  action: FilterActionType,
+): Record<string, any> => {
   switch (action.type) {
     case "UPDATE":
       const updatedState = { ...state };
@@ -27,18 +30,6 @@ const reducer = (state: Filters, action: ActionType): Filters => {
         delete updatedState[keyToRemove];
       }
 
-      const hasOtherKeys = Object.keys(updatedState).some(
-        (key) =>
-          key !== "_page" &&
-          updatedState[key] !== null &&
-          updatedState[key] !== undefined &&
-          updatedState[key] !== "",
-      );
-
-      if (!hasOtherKeys && updatedState["_page"]) {
-        delete updatedState["_page"];
-      }
-
       return updatedState;
     default:
       return state;
@@ -46,15 +37,15 @@ const reducer = (state: Filters, action: ActionType): Filters => {
 };
 
 const useFilters = (): FilterProps => {
-  const [filters, dispatch] = useReducer(reducer, DEFAULT_FILTERS);
+  const [params, dispatch] = useReducer(reducer, DEFAULT_FILTERS);
 
-  const onFilterChange = (newFilters: Filters) => {
+  const onFilterChange = (newFilters: Record<string, any>) => {
     setCookie("no-loader", "true");
     dispatch({ type: "UPDATE", payload: newFilters });
   };
 
   return {
-    filters,
+    params,
     onFilterChange,
   };
 };

@@ -19,6 +19,8 @@ import type { ConfigProviderProps } from "../../components/ui/config-provider";
 import type { ColProps } from "../../components/ui/grid";
 import type { ColorPickerProps } from "../../components/ui/color-picker";
 import type { CustomSpinProps } from "../../components/ui/spin";
+import type { DataTableProps } from "../../components/ui/data-table";
+import type { DataTableColumnsType } from "../../components/ui/data-table";
 import type {
   DatePickerProps,
   DateRangePickerProps,
@@ -59,11 +61,9 @@ import type { SpaceProps } from "../../components/ui/space";
 import type { SpinProps } from "../../components/ui/spin";
 import type { StepsProps } from "../../components/ui/steps";
 import type { SwitchProps } from "../../components/ui/switch";
-import type { TableProps } from "../../components/ui/table";
-import type { TableColumnsType } from "../../components/ui/table";
 import type { TabsProps } from "../../components/ui/tabs";
 import type { TagProps } from "../../components/ui/tag";
-import type { TextFilterProps } from "../../components/ui/filters/text";
+import type { TextFilterProps } from "../../components/ui/data-filter/text";
 import type { TimePickerProps } from "../../components/ui/time-picker";
 import type { TimeLineProps } from "../../components/ui/timeline";
 import type { TooltipProps } from "../../components/ui/tooltip";
@@ -100,6 +100,7 @@ export {
   ConfigProviderProps,
   ColProps,
   ColorPickerProps,
+  DataTableProps,
   DatePickerProps,
   DescriptionsProps,
   DateRangePickerProps,
@@ -137,7 +138,6 @@ export {
   SpinProps,
   StepsProps,
   SwitchProps,
-  TableProps,
   TabsProps,
   TagProps,
   TextFilterProps,
@@ -154,4 +154,4 @@ export {
   WatermarkProps,
 };
 
-export type ColumnsType<T> = TableColumnsType<T>;
+export type ColumnsType<T> = DataTableColumnsType<T>;

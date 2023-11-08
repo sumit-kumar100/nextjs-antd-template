@@ -1,4 +1,4 @@
-import useFilters from "./useFilters";
+import useFilters from "./useFilter";
 import useForm from "./useForm";
 import usePagination from "./usePagination";
 import useTable from "./useTable";

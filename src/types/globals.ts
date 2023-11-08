@@ -1,14 +1,10 @@
 export type NextPageProps = {
-  params: Object;
-  searchParams: Object;
+  params: Record<string, any>;
+  searchParams: Record<string, any>;
 };
 
 export type NextErrorProps = {
   message: string;
   error: string;
   statusCode: number;
-};
-
-export type Routes = {
-  [key: string]: string;
 };

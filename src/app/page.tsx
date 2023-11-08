@@ -14,8 +14,8 @@ export default async function Home() {
   const queryServer = new ServerQuery();
 
   await queryServer.prefetchQuery({
-    queryKey: ["posts", DEFAULT_FILTERS, DEFAULT_OFFSET, DEFAULT_LIMIT],
-    queryFn: () => fetchPosts(DEFAULT_FILTERS, DEFAULT_OFFSET, DEFAULT_LIMIT),
+    queryKey: ["posts", DEFAULT_LIMIT, DEFAULT_OFFSET, DEFAULT_FILTERS],
+    queryFn: () => fetchPosts(DEFAULT_LIMIT, DEFAULT_OFFSET, DEFAULT_FILTERS),
   });
 
   return (

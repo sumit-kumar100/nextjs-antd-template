@@ -26,6 +26,7 @@ import Cascader from "./cascader";
 import Checkbox from "./checkbox";
 import ConfigProvider from "./config-provider";
 import ColorPicker from "./color-picker";
+import DataTable from "./data-table";
 import Descriptions from "./description";
 import Divider from "./divider";
 import Drawer from "./drawer";
@@ -55,7 +56,6 @@ import Slider from "./slider";
 import Statistic from "./statistic";
 import Steps from "./steps";
 import Switch from "./switch";
-import Table from "./table";
 import Tabs from "./tabs";
 import Tag from "./tag";
 import TimePicker from "./time-picker";
@@ -65,7 +65,7 @@ import Tour from "./tour";
 import Transfer from "./transfer";
 import Tree from "./tree";
 import TreeSelect from "./tree-select";
-import TextFilter from "./filters/text";
+import TextFilter from "./data-filter/text";
 import Upload from "./upload";
 import Watermark from "./watermark";
 
@@ -91,6 +91,7 @@ export {
   Content,
   ColorPicker,
   CustomSpin,
+  DataTable,
   DatePicker,
   DateRangePicker,
   Descriptions,
@@ -132,7 +133,6 @@ export {
   Statistic,
   Steps,
   Switch,
-  Table,
   Tabs,
   Tag,
   TimePicker,

@@ -3,18 +3,18 @@ import useTable from "@/hooks/useTable";
 import { fetchPosts } from "./fetch-posts";
 import { useQuery } from "@tanstack/react-query";
 import { getColumns } from "./columns";
-import { Table, Box, Text, Flex } from "@/components/ui";
+import { DataTable, Box, Text, Flex } from "@/components/ui";
 
 export default function TanstackExamplePosts() {
-  const {
-    pagination: { limit, offset, onPaginationChange },
-    searchFilters: { filters, onFilterChange },
-  } = useTable();
+  const { pagination, filter } = useTable();
 
   const { data, isLoading } = useQuery({
-    queryKey: ["posts", filters, offset, limit],
-    queryFn: () => fetchPosts(filters, offset, limit),
+    queryKey: ["posts", pagination.limit, pagination.offset, filter.params],
+    queryFn: () =>
+      fetchPosts(pagination.limit, pagination.offset, filter.params),
   });
+
+  console.log(pagination, filter);
 
   return (
     <Box>
@@ -25,26 +25,21 @@ export default function TanstackExamplePosts() {
         className="p-2 text-center"
       >
         <Text className="font-bold">
-          Tanstack Example Posts - Server Side Pagination & Filters
+          Tanstack Example Posts - Server Side Pagination & Filter
         </Text>
         <Text>
-          Table filters are implemented correctly and are working, but
+          Table filter are implemented correctly and are working, but
           jsonplaceholder doesn&apos;t support filtering using query params.
           Hence data will be empty while searching columns. To ensure, you can
           inspect the network tab to ensure API calls are being made.
         </Text>
       </Flex>
-      <Table
+      <DataTable
         loading={isLoading}
         dataSource={data}
-        columns={getColumns({
-          filters,
-          onFilterChange,
-        })}
+        columns={getColumns({ pagination, filter })}
         pagination={{
-          limit: limit,
-          offset: offset,
-          onPaginationChange: onPaginationChange,
+          ...pagination,
           total: 100,
         }}
       />

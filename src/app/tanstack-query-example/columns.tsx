@@ -2,7 +2,7 @@
 
 import { Flex, Text, TextFilter } from "@/components/ui";
 import { ColumnsType } from "@/types/ui";
-import { FilterProps } from "@/types/hooks";
+import { TableProps } from "@/types/hooks";
 
 interface DataType {
   key: string;
@@ -12,14 +12,21 @@ interface DataType {
   tags: string[];
 }
 
-export const getColumns = (props: FilterProps): ColumnsType<DataType> => {
+export const getColumns = ({
+  pagination: { onPaginationChange },
+  filter: { onFilterChange },
+}: TableProps): ColumnsType<DataType> => {
   return [
     {
       key: "id",
       title: () => (
         <Flex vertical justify="center" align="center" gap={4}>
           <Text>ID</Text>
-          <TextFilter filterName="id" onFilterChange={props.onFilterChange} />
+          <TextFilter
+            filterName="id"
+            onFilterChange={onFilterChange}
+            onPaginationChange={onPaginationChange}
+          />
         </Flex>
       ),
       dataIndex: "id",
@@ -32,7 +39,8 @@ export const getColumns = (props: FilterProps): ColumnsType<DataType> => {
           <Text>Title</Text>
           <TextFilter
             filterName="title"
-            onFilterChange={props.onFilterChange}
+            onFilterChange={onFilterChange}
+            onPaginationChange={onPaginationChange}
           />
         </Flex>
       ),
@@ -44,7 +52,11 @@ export const getColumns = (props: FilterProps): ColumnsType<DataType> => {
       title: () => (
         <Flex vertical justify="center" align="center" gap={4}>
           <Text>Body</Text>
-          <TextFilter filterName="body" onFilterChange={props.onFilterChange} />
+          <TextFilter
+            filterName="body"
+            onFilterChange={onFilterChange}
+            onPaginationChange={onPaginationChange}
+          />
         </Flex>
       ),
       dataIndex: "body",

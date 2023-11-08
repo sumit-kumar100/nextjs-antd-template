@@ -14,7 +14,7 @@ interface AntdDataTableProps<T> extends AntdTableProps<T> {
 
 const AntdTable = dynamic(() => import("antd/lib/table"));
 
-const Table: React.FC<AntdDataTableProps<any>> = ({
+const DataTable: React.FC<AntdDataTableProps<any>> = ({
   dataSource,
   columns,
   loading,
@@ -38,7 +38,9 @@ const Table: React.FC<AntdDataTableProps<any>> = ({
             pageSize={pagination.limit}
             total={pagination.total}
             showSizeChanger={false}
-            onChange={pagination.onPaginationChange}
+            onChange={(page: number, pageSize: number) =>
+              pagination.onPaginationChange(pageSize, page)
+            }
           />
         </Flex>
       )}
@@ -46,8 +48,8 @@ const Table: React.FC<AntdDataTableProps<any>> = ({
   );
 };
 
-export type TableColumnsType<T> = ColumnsType<T>;
+export type DataTableColumnsType<T> = ColumnsType<T>;
 
-export type TableProps = AntdDataTableProps<any>;
+export type DataTableProps = AntdDataTableProps<any>;
 
-export default Table;
+export default DataTable;

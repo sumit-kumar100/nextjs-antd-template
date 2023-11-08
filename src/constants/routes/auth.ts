@@ -1,5 +1,3 @@
-import { Routes } from "@/types/globals";
-
-export const authRoutes: Routes = {
+export const authRoutes: Record<string, string> = {
   login: "/login",
 };
