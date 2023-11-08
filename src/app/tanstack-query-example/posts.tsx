@@ -14,8 +14,6 @@ export default function TanstackExamplePosts() {
       fetchPosts(pagination.limit, pagination.offset, filter.params),
   });
 
-  console.log(pagination, filter);
-
   return (
     <Box>
       <Flex
