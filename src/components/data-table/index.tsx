@@ -1,20 +1,20 @@
 "use client";
 
 import React, { Fragment } from "react";
-import dynamic from "next/dynamic";
-import AntdPagiation from "@/components/ui/pagination";
-import { Flex } from "@/components/ui";
-import { PaginationProps } from "@/types/hooks";
-import { TableProps as AntdTableProps } from "antd/lib/table";
-import type { ColumnsType } from "antd/es/table";
+import { Table, Pagination, Flex } from "@/components/ui";
+import { TableProps, ColumnsType } from "@/components/ui/types";
+import type { UseDataTableProps } from "./useDataTable";
+import type { UsePaginationProps } from "./usePagination";
+import type { UseFilterProps } from "./useFilter";
+import useDataTable from "./useDataTable";
+import usePagination from "./usePagination";
+import useFilter from "./useFilter";
 
-type AntdDataTableProps<T> = AntdTableProps<T> & {
-  pagination?: PaginationProps & { total: number };
+export type DataTableProps<T> = TableProps<T> & {
+  pagination?: UsePaginationProps & { total: number };
 };
 
-const AntdTable = dynamic(() => import("antd/lib/table"));
-
-const DataTable: React.FC<AntdDataTableProps<any>> = ({
+const DataTable: React.FC<DataTableProps<any>> = ({
   dataSource,
   columns,
   loading,
@@ -22,7 +22,7 @@ const DataTable: React.FC<AntdDataTableProps<any>> = ({
 }) => {
   return (
     <Fragment>
-      <AntdTable
+      <Table
         dataSource={dataSource?.map((row, key: number) => ({
           ...row,
           key,
@@ -33,7 +33,7 @@ const DataTable: React.FC<AntdDataTableProps<any>> = ({
       />
       {pagination && (
         <Flex justify="end" className="my-4">
-          <AntdPagiation
+          <Pagination
             current={pagination.offset}
             pageSize={pagination.limit}
             total={pagination.total}
@@ -50,6 +50,8 @@ const DataTable: React.FC<AntdDataTableProps<any>> = ({
 
 export type DataTableColumnsType<T> = ColumnsType<T>;
 
-export type DataTableProps = AntdDataTableProps<any>;
-
 export default DataTable;
+
+export { useDataTable, usePagination, useFilter };
+
+export { UseDataTableProps, UsePaginationProps, UseFilterProps };

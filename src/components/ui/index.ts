@@ -2,7 +2,7 @@
 
 import { CardMeta } from "./card";
 import { DatePicker, DateRangePicker } from "./date-picker";
-import { Form, FormItem, FormList } from "./form";
+import { FormItem, FormList } from "./form";
 import { Row, Col } from "./grid";
 import { Header, Footer, Sider, Content } from "./layout";
 import { PreviewGroup } from "./image";
@@ -26,12 +26,12 @@ import Cascader from "./cascader";
 import Checkbox from "./checkbox";
 import ConfigProvider from "./config-provider";
 import ColorPicker from "./color-picker";
-import DataTable from "./data-table";
 import Descriptions from "./description";
 import Divider from "./divider";
 import Drawer from "./drawer";
 import DropDown from "./dropdown";
 import Empty from "./empty";
+import Form from "./form";
 import Flex from "./flex";
 import FloatButton from "./float-button";
 import Image from "./image";
@@ -56,6 +56,7 @@ import Slider from "./slider";
 import Statistic from "./statistic";
 import Steps from "./steps";
 import Switch from "./switch";
+import Table from "./table";
 import Tabs from "./tabs";
 import Tag from "./tag";
 import TimePicker from "./time-picker";
@@ -65,7 +66,7 @@ import Tour from "./tour";
 import Transfer from "./transfer";
 import Tree from "./tree";
 import TreeSelect from "./tree-select";
-import TextFilter from "./data-filter/text";
+import TextFilter from "../data-filter/text";
 import Upload from "./upload";
 import Watermark from "./watermark";
 
@@ -91,7 +92,6 @@ export {
   Content,
   ColorPicker,
   CustomSpin,
-  DataTable,
   DatePicker,
   DateRangePicker,
   Descriptions,
@@ -133,6 +133,7 @@ export {
   Statistic,
   Steps,
   Switch,
+  Table,
   Tabs,
   Tag,
   TimePicker,

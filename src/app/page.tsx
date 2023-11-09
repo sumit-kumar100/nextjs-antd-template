@@ -1,4 +1,3 @@
-import TanstackExamplePosts from "./tanstack-query-example/posts";
 import { Box } from "@/components/ui";
 import {
   DEFAULT_FILTERS,
@@ -9,6 +8,9 @@ import { ServerProvider } from "@/config/server-provider";
 import { ServerQuery } from "@/config/server-query";
 import { dehydrate } from "@tanstack/react-query";
 import { fetchPosts } from "./tanstack-query-example/fetch-posts";
+import dynamic from "next/dynamic";
+
+const TanstackExamplePosts = dynamic(() => import("./tanstack-query-example/posts"))
 
 export default async function Home() {
   const queryServer = new ServerQuery();

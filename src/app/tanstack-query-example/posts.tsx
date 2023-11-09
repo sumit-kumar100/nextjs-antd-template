@@ -1,12 +1,20 @@
 "use client";
-import useTable from "@/hooks/useTable";
+
+import React from "react"
+import DataTable, { useDataTable } from "@/components/data-table";
 import { fetchPosts } from "./fetch-posts";
 import { useQuery } from "@tanstack/react-query";
 import { getColumns } from "./columns";
-import { DataTable, Box, Text, Flex } from "@/components/ui";
+import { Box, Text, Flex, Form, Input, FormItem } from "@/components/ui";
+import useForm from "@/components/ui/form/useForm";
 
 export default function TanstackExamplePosts() {
-  const { pagination, filter } = useTable();
+
+  const x = useForm()
+
+  console.log(x)
+
+  const { pagination, filter } = useDataTable();
 
   const { data, isLoading } = useQuery({
     queryKey: ["posts", pagination.limit, pagination.offset, filter.params],
@@ -41,6 +49,48 @@ export default function TanstackExamplePosts() {
           total: 100,
         }}
       />
+      <Form
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        style={{
+          maxWidth: 600,
+        }}
+        initialValues={{
+          remember: true,
+
+        }}
+        autoComplete="off"
+      >
+        <FormItem
+          label="Username"
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your username!',
+            },
+          ]}
+        >
+          <Input />
+        </FormItem>
+        <FormItem
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your password!',
+            },
+          ]}
+        >
+          <Input />
+        </FormItem>
+      </Form>
     </Box>
   );
 }

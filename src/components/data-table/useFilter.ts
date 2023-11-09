@@ -1,13 +1,22 @@
 "use client";
 
 import { DEFAULT_FILTERS } from "@/constants/globals";
-import { FilterProps, FilterActionType } from "@/types/hooks";
 import { setCookie } from "cookies-next";
 import { useReducer } from "react";
 
+export type UseFilterActionType = {
+  type: "UPDATE";
+  payload: Record<string, any>;
+};
+
+export type UseFilterProps = {
+  params: Record<string, any>;
+  onFilterChange: (newFilters: Record<string, any>) => void;
+};
+
 const reducer = (
   state: Record<string, any>,
-  action: FilterActionType,
+  action: UseFilterActionType,
 ): Record<string, any> => {
   switch (action.type) {
     case "UPDATE":
@@ -36,7 +45,7 @@ const reducer = (
   }
 };
 
-const useFilters = (): FilterProps => {
+const useFilter = (): UseFilterProps => {
   const [params, dispatch] = useReducer(reducer, DEFAULT_FILTERS);
 
   const onFilterChange = (newFilters: Record<string, any>) => {
@@ -50,4 +59,4 @@ const useFilters = (): FilterProps => {
   };
 };
 
-export default useFilters;
+export default useFilter;

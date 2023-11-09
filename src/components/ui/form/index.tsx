@@ -8,13 +8,12 @@ import {
 } from "antd/lib/form";
 import dynamic from "next/dynamic";
 
-const AntdForm = dynamic(() => import("antd/lib/form"));
+
+const AntdForm = dynamic(() => import("antd/lib/form/Form"));
 const AntdFormItem = dynamic(() => import("antd/lib/form/FormItem"));
 const AntdFormList = dynamic(() => import("antd/lib/form/FormList"));
 
-const Form: React.FC<AntdFormProps & { children: React.ReactNode }> = (
-  props,
-) => {
+const Form: React.FC<AntdFormProps> = (props: any) => {
   return <AntdForm {...props} />;
 };
 
@@ -32,4 +31,6 @@ export type FormItemProps = AntdFormItemProps;
 
 export type FormListProps = AntdFormListProps;
 
-export { Form, FormItem, FormList };
+export default Form;
+
+export { FormItem, FormList };

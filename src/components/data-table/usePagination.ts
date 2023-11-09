@@ -2,13 +2,23 @@
 
 import { useReducer } from "react";
 import { setCookie } from "cookies-next";
-import { PaginationProps, PaginationActionType } from "@/types/hooks";
 import { DEFAULT_LIMIT, DEFAULT_OFFSET } from "@/constants/globals";
 
+export type UsePaginationActionType = {
+  type: "UPDATE";
+  payload: Record<string, any>;
+};
+
+export type UsePaginationProps = {
+  limit: number;
+  offset: number;
+  onPaginationChange(limit: number, offset: number): void;
+};
+
 const reducer = (
-  state: PaginationProps,
-  action: PaginationActionType,
-): PaginationProps => {
+  state: UsePaginationProps,
+  action: UsePaginationActionType,
+): UsePaginationProps => {
   switch (action.type) {
     case "UPDATE":
       const { limit, offset } = action.payload;
@@ -19,8 +29,8 @@ const reducer = (
   }
 };
 
-const usePagination = (): PaginationProps => {
-  const initialState: PaginationProps = {
+const usePagination = (): UsePaginationProps => {
+  const initialState: UsePaginationProps = {
     limit: DEFAULT_LIMIT,
     offset: DEFAULT_OFFSET,
     onPaginationChange: (limit: number, offset: number) => {},

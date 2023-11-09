@@ -2,11 +2,11 @@
 
 import { useState, useCallback } from "react";
 import { DEFAULT_LIMIT, DEFAULT_OFFSET } from "@/constants/globals";
-import Input from "@/components/ui/input";
+import { Input } from "@/components/ui";
 
 type AntdTextFilterProps = {
   filterName: string;
-  onFilterChange: (searchFilterObj: Object) => void;
+  onFilterChange: (searchFilterObj: Record<string, any>) => void;
   onPaginationChange?: (limit: number, offset: number) => void;
 };
 
