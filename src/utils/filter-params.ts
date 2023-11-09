@@ -28,7 +28,11 @@ export const generateFilterParams = (
 
   let updatedState = { ...state };
 
-  if (Object.keys(updatedState).length > 0) {
+  if (
+    Object.keys(updatedState).filter(
+      (key) => !["limit", "offset"].includes(key),
+    ).length > 0
+  ) {
     updatedState = {
       limit: DEFAULT_LIMIT,
       offset: DEFAULT_OFFSET,
