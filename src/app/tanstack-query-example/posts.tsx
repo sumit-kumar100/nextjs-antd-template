@@ -3,7 +3,7 @@
 import DataTable, { useDataTable } from "@/components/data-table";
 import { fetchPosts } from "./fetch-posts";
 import { getColumns } from "./columns";
-import { Box, Text, Flex, Form, Input, FormItem } from "@/components/ui";
+import { Box, Text, Flex } from "@/components/ui";
 import { withHooks } from "@/config/with-hooks";
 import { NextPageWithHookProps } from "@/types/globals";
 
@@ -18,38 +18,6 @@ function TanstackExamplePosts({ useQuery }: NextPageWithHookProps) {
 
   return (
     <Box>
-      <br />
-      <Form
-        initialValues={{
-          username: "dsjfkl",
-        }}
-        autoComplete="off"
-      >
-        <FormItem
-          label="Username"
-          name="username"
-          rules={[
-            {
-              required: true,
-              message: "Please input your username!",
-            },
-          ]}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label="Password"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: "Please input your password!",
-            },
-          ]}
-        >
-          <Input />
-        </FormItem>
-      </Form>
       <Flex
         vertical
         justify="center"

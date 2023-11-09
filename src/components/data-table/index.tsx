@@ -3,15 +3,15 @@
 import React, { Fragment } from "react";
 import { Table, Pagination, Flex } from "@/components/ui";
 import { TableProps, ColumnsType } from "@/components/ui/types";
-import type { UseDataTableProps } from "./useDataTable";
-import type { UsePaginationProps } from "./usePagination";
-import type { UseFilterProps } from "./useFilter";
+import type { UseDataTable } from "./useDataTable";
+import type { UsePagination } from "./usePagination";
+import type { UseFilter } from "./useFilter";
 import useDataTable from "./useDataTable";
 import usePagination from "./usePagination";
 import useFilter from "./useFilter";
 
 export type DataTableProps<T> = TableProps<T> & {
-  pagination?: UsePaginationProps & { total: number };
+  pagination?: UsePagination & { total: number };
 };
 
 const DataTable: React.FC<DataTableProps<any>> = ({
@@ -54,4 +54,4 @@ export default DataTable;
 
 export { useDataTable, usePagination, useFilter };
 
-export { UseDataTableProps, UsePaginationProps, UseFilterProps };
+export { UseDataTable, UsePagination, UseFilter };

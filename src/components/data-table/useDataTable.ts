@@ -2,15 +2,15 @@
 
 import useFilters from "./useFilter";
 import usePagination from "./usePagination";
-import { UsePaginationProps } from "./usePagination";
-import { UseFilterProps } from "./useFilter";
+import { UsePagination } from "./usePagination";
+import { UseFilter } from "./useFilter";
 
-export type UseDataTableProps = {
-  pagination: UsePaginationProps;
-  filter: UseFilterProps;
+export type UseDataTable = {
+  pagination: UsePagination;
+  filter: UseFilter;
 };
 
-export const useDataTable = (): UseDataTableProps => {
+export const useDataTable = (): UseDataTable => {
   const { limit, offset, onPaginationChange } = usePagination();
 
   const { params, onFilterChange } = useFilters();

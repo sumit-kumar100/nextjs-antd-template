@@ -9,16 +9,16 @@ export type UsePaginationActionType = {
   payload: Record<string, any>;
 };
 
-export type UsePaginationProps = {
+export type UsePagination = {
   limit: number;
   offset: number;
   onPaginationChange(limit: number, offset: number): void;
 };
 
 const reducer = (
-  state: UsePaginationProps,
+  state: UsePagination,
   action: UsePaginationActionType,
-): UsePaginationProps => {
+): UsePagination => {
   switch (action.type) {
     case "UPDATE":
       const { limit, offset } = action.payload;
@@ -29,8 +29,8 @@ const reducer = (
   }
 };
 
-const usePagination = (): UsePaginationProps => {
-  const initialState: UsePaginationProps = {
+const usePagination = (): UsePagination => {
+  const initialState: UsePagination = {
     limit: DEFAULT_LIMIT,
     offset: DEFAULT_OFFSET,
     onPaginationChange: (limit: number, offset: number) => {},

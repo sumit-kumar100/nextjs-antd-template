@@ -1,10 +1,7 @@
 "use client";
 
 import { Flex, Text, TextFilter } from "@/components/ui";
-import {
-  UseDataTableProps,
-  DataTableColumnsType,
-} from "@/components/data-table";
+import { UseDataTable, DataTableColumnsType } from "@/components/data-table";
 
 type DataType = {
   key: string;
@@ -17,7 +14,7 @@ type DataType = {
 export const getColumns = ({
   pagination: { onPaginationChange },
   filter: { onFilterChange },
-}: UseDataTableProps): DataTableColumnsType<DataType> => {
+}: UseDataTable): DataTableColumnsType<DataType> => {
   return [
     {
       key: "id",

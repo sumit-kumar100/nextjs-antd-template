@@ -9,7 +9,7 @@ export type UseFilterActionType = {
   payload: Record<string, any>;
 };
 
-export type UseFilterProps = {
+export type UseFilter = {
   params: Record<string, any>;
   onFilterChange: (newFilters: Record<string, any>) => void;
 };
@@ -45,7 +45,7 @@ const reducer = (
   }
 };
 
-const useFilter = (): UseFilterProps => {
+const useFilter = (): UseFilter => {
   const [params, dispatch] = useReducer(reducer, DEFAULT_FILTERS);
 
   const onFilterChange = (newFilters: Record<string, any>) => {
