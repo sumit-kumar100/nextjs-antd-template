@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FlexProps as AntdFlexProps } from "antd/lib/flex/interface";
+import { FlexProps as AntdFlexProps } from "antd/lib";
 import dynamic from "next/dynamic";
 
 const AntdFlex = dynamic(() => import("antd/lib/flex"));

@@ -4,13 +4,13 @@ import { Flex, Text, TextFilter } from "@/components/ui";
 import { ColumnsType } from "@/types/ui";
 import { TableProps } from "@/types/hooks";
 
-interface DataType {
+type DataType = {
   key: string;
   name: string;
   age: number;
   address: string;
   tags: string[];
-}
+};
 
 export const getColumns = ({
   pagination: { onPaginationChange },

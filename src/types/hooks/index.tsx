@@ -1,31 +1,27 @@
-/* useFilters */
-export interface FilterActionType {
+export type FilterActionType = {
   type: "UPDATE";
   payload: Record<string, any>;
-}
+};
 
-export interface FilterProps {
+export type FilterProps = {
   params: Record<string, any>;
   onFilterChange: (newFilters: Record<string, any>) => void;
-}
+};
 
-/* useForm */
-export interface FormProps {}
-
-/* usePagination */
-export interface PaginationActionType {
+export type PaginationActionType = {
   type: "UPDATE";
   payload: Record<string, any>;
-}
+};
 
-export interface PaginationProps {
+export type PaginationProps = {
   limit: number;
   offset: number;
   onPaginationChange(limit: number, offset: number): void;
-}
+};
 
-/* useTable */
-export interface TableProps {
+export type TableProps = {
   pagination: PaginationProps;
   filter: FilterProps;
-}
+};
+
+export type FormProps = {};

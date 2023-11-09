@@ -1,15 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { cn } from "@/utils/tailwind";
 import dynamic from "next/dynamic";
 
-interface NextImageProps {
+type NextImageProps = {
   src: string;
   alt: string;
   style?: object;
   className?: string;
-}
+};
 
 const Image = dynamic(() => import("next/image"));
 
@@ -51,13 +50,15 @@ const NextImage: React.FC<NextImageProps> = ({
       style={styles}
       src={src}
       priority
-      className={cn(
-        "duration-0 ease-in-out",
+      className={`
+      duration-0 ease-in-out
+      ${
         isLoading
           ? "scale-110 blur-2xl grayscale"
-          : "scale-100 blur-0 grayscale-0",
-        className,
-      )}
+          : "scale-100 blur-0 grayscale-0"
+      }
+      ${className}
+    `}
       onLoad={() => setLoading(false)}
       {...props}
     />

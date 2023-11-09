@@ -10,7 +10,7 @@ const Spin: React.FC<AntdSpinProps> = (props) => {
   return <AntdSpin {...props} />;
 };
 
-interface AntdCustomSpinProps extends React.HTMLAttributes<HTMLDivElement> {}
+type AntdCustomSpinProps = React.HTMLAttributes<HTMLDivElement>;
 
 const CustomSpin: React.FC<AntdCustomSpinProps> = (props) => {
   return (

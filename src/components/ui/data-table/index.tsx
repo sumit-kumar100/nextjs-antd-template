@@ -8,9 +8,9 @@ import { PaginationProps } from "@/types/hooks";
 import { TableProps as AntdTableProps } from "antd/lib/table";
 import type { ColumnsType } from "antd/es/table";
 
-interface AntdDataTableProps<T> extends AntdTableProps<T> {
+type AntdDataTableProps<T> = AntdTableProps<T> & {
   pagination?: PaginationProps & { total: number };
-}
+};
 
 const AntdTable = dynamic(() => import("antd/lib/table"));
 

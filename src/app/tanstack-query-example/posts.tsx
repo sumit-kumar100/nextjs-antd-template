@@ -4,6 +4,7 @@ import { fetchPosts } from "./fetch-posts";
 import { useQuery } from "@tanstack/react-query";
 import { getColumns } from "./columns";
 import { DataTable, Box, Text, Flex } from "@/components/ui";
+import NextImage from "@/components/next-image";
 
 export default function TanstackExamplePosts() {
   const { pagination, filter } = useTable();
@@ -16,6 +17,7 @@ export default function TanstackExamplePosts() {
 
   return (
     <Box>
+      <NextImage src="/next.svg" alt="Next.js Logo" style={{ width: 100 }} />
       <Flex
         vertical
         justify="center"

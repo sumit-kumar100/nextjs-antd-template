@@ -2,7 +2,6 @@ import { ClientProvider } from "@/config/client-provider";
 import { Flex, Layout, Header, Content } from "@/components/ui";
 import { DEFUALT_THEME_COLOR } from "@/constants/globals";
 import { fontPoppins } from "@/utils/fonts";
-import { cn } from "@/utils/tailwind";
 import NextImage from "@/components/next-image";
 import "@/styles/globals.css";
 
@@ -19,10 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
-          "min-h-screen font-sans antialiased",
-          fontPoppins.variable,
-        )}
+        className={`min-h-screen font-sans antialiased ${fontPoppins.variable}`}
       >
         <ClientProvider>
           <Layout>
