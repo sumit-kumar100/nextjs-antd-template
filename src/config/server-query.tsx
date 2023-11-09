@@ -1,7 +1,10 @@
 import axios from "axios";
 import { cookies } from "next/headers";
 import { DEFUALT_API_BASE_URL, DEFUALT_STALE_TIME } from "@/constants/globals";
-import { QueryClient } from "@tanstack/query-core";
+import {
+  QueryClient,
+  dehydrate as dehydrateInternal,
+} from "@tanstack/query-core";
 
 /*
   if any occurs happens while fetching data from server that will be handled on client-side @tanstack/queryClient.
@@ -25,9 +28,13 @@ export class ServerQuery extends QueryClient {
     this.setAxiosDefaults();
   }
 
-  private setAxiosDefaults() {
+  setAxiosDefaults() {
     const accessToken = cookies().get("accessToken")?.value;
     axios.defaults.baseURL = DEFUALT_API_BASE_URL;
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+  }
+
+  dehydrate() {
+    return dehydrateInternal(this);
   }
 }

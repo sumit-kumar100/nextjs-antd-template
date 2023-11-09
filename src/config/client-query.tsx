@@ -33,13 +33,13 @@ class Client extends QueryClient {
     this.setupTokenInterceptor();
   }
 
-  private setAxiosDefaults() {
+  setAxiosDefaults() {
     const accessToken = getCookie("accessToken");
     axios.defaults.baseURL = DEFUALT_API_BASE_URL;
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
   }
 
-  private setupTokenInterceptor() {
+  setupTokenInterceptor() {
     axios.interceptors.response.use(
       (response: AxiosResponse) => {
         return response;
@@ -59,14 +59,14 @@ class Client extends QueryClient {
     );
   }
 
-  private handleErrorResponse(error: any) {
+  handleErrorResponse(error: any) {
     const errorMessage = error?.response?.data?.message;
     if (errorMessage) {
       notification.error({ message: errorMessage });
     }
   }
 
-  private async handleRefreshToken(): Promise<any> {
+  async handleRefreshToken(): Promise<any> {
     const response = await fetch(DEFUALT_API_BASE_URL + "/refresh-token", {
       method: "POST",
       body: JSON.stringify({ refreshToken: getCookie("refreshToken") }),
@@ -82,15 +82,12 @@ class Client extends QueryClient {
     }
   }
 
-  private handleReAuthorized(data: {
-    accessToken: string;
-    refreshToken: string;
-  }) {
+  handleReAuthorized(data: { accessToken: string; refreshToken: string }) {
     setCookie("accessToken", data.accessToken);
     setCookie("refreshToken", data.refreshToken);
   }
 
-  private handleUnauthorized() {
+  handleUnauthorized() {
     deleteCookie("accessToken");
     deleteCookie("refreshToken");
     window.location.replace("/login");

@@ -1,3 +1,4 @@
+import TanstackExamplePosts from "./tanstack-query-example/posts";
 import { Box } from "@/components/ui";
 import {
   DEFAULT_FILTERS,
@@ -6,13 +7,10 @@ import {
 } from "@/constants/globals";
 import { ServerProvider } from "@/config/server-provider";
 import { ServerQuery } from "@/config/server-query";
-import { dehydrate } from "@tanstack/react-query";
 import { fetchPosts } from "./tanstack-query-example/fetch-posts";
-import dynamic from "next/dynamic";
+import { NextPageProps } from "@/types/globals";
 
-const TanstackExamplePosts = dynamic(() => import("./tanstack-query-example/posts"))
-
-export default async function Home() {
+export default async function Home(props: NextPageProps) {
   const queryServer = new ServerQuery();
 
   await queryServer.prefetchQuery({
@@ -21,9 +19,9 @@ export default async function Home() {
   });
 
   return (
-    <ServerProvider state={dehydrate(queryServer)}>
+    <ServerProvider state={queryServer.dehydrate()}>
       <Box className="flex min-h-screen flex-col items-center justify-between px-24">
-        <TanstackExamplePosts />
+        <TanstackExamplePosts {...props} />
       </Box>
     </ServerProvider>
   );

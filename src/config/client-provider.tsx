@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import NextLoader from "@/components/next-loader";
 import NextProgress from "@/components/next-progress";
 import AntdConfigProvider from "@/components/ui/config-provider";

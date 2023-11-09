@@ -19,7 +19,7 @@ const NextImage: React.FC<NextImageProps> = ({
   className,
   ...props
 }) => {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState<boolean>(true);
 
   const styles = useMemo(() => {
     if (className?.includes("h-") || className?.includes("w-")) {
@@ -41,6 +41,10 @@ const NextImage: React.FC<NextImageProps> = ({
     }
   }, [className, style]);
 
+  const blur = isLoading
+    ? "scale-110 blur-2xl grayscale"
+    : "scale-100 blur-0 grayscale-0";
+
   return (
     <Image
       alt={alt}
@@ -50,15 +54,7 @@ const NextImage: React.FC<NextImageProps> = ({
       style={styles}
       src={src}
       priority
-      className={`
-      duration-0 ease-in-out
-      ${
-        isLoading
-          ? "scale-110 blur-2xl grayscale"
-          : "scale-100 blur-0 grayscale-0"
-      }
-      ${className}
-    `}
+      className={`duration-0 ease-in-out ${blur} ${className}`}
       onLoad={() => setLoading(false)}
       {...props}
     />

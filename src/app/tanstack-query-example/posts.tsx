@@ -1,19 +1,13 @@
 "use client";
 
-import React from "react"
 import DataTable, { useDataTable } from "@/components/data-table";
 import { fetchPosts } from "./fetch-posts";
-import { useQuery } from "@tanstack/react-query";
 import { getColumns } from "./columns";
 import { Box, Text, Flex, Form, Input, FormItem } from "@/components/ui";
-import useForm from "@/components/ui/form/useForm";
+import { withHooks } from "@/config/with-hooks";
+import { NextPageWithHookProps } from "@/types/globals";
 
-export default function TanstackExamplePosts() {
-
-  const x = useForm()
-
-  console.log(x)
-
+function TanstackExamplePosts({ useQuery }: NextPageWithHookProps) {
   const { pagination, filter } = useDataTable();
 
   const { data, isLoading } = useQuery({
@@ -24,6 +18,38 @@ export default function TanstackExamplePosts() {
 
   return (
     <Box>
+      <br />
+      <Form
+        initialValues={{
+          username: "dsjfkl",
+        }}
+        autoComplete="off"
+      >
+        <FormItem
+          label="Username"
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: "Please input your username!",
+            },
+          ]}
+        >
+          <Input />
+        </FormItem>
+        <FormItem
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}
+        >
+          <Input />
+        </FormItem>
+      </Form>
       <Flex
         vertical
         justify="center"
@@ -49,48 +75,8 @@ export default function TanstackExamplePosts() {
           total: 100,
         }}
       />
-      <Form
-        name="basic"
-        labelCol={{
-          span: 8,
-        }}
-        wrapperCol={{
-          span: 16,
-        }}
-        style={{
-          maxWidth: 600,
-        }}
-        initialValues={{
-          remember: true,
-
-        }}
-        autoComplete="off"
-      >
-        <FormItem
-          label="Username"
-          name="username"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your username!',
-            },
-          ]}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label="Password"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your password!',
-            },
-          ]}
-        >
-          <Input />
-        </FormItem>
-      </Form>
     </Box>
   );
 }
+
+export default withHooks(TanstackExamplePosts);
