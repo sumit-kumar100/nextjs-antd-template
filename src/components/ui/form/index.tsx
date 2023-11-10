@@ -13,7 +13,7 @@ const AntdFormItem = dynamic(() => import("antd/lib/form/FormItem"));
 const AntdFormList = dynamic(() => import("antd/lib/form/FormList"));
 
 const Form: React.FC<AntdFormProps> = ({ children, ...props }) => {
-  return <AntdForm {...props}>{children as any}</AntdForm>;
+  return <AntdForm {...props}>{children as React.ReactNode}</AntdForm>;
 };
 
 const FormItem: React.FC<AntdFormItemProps> = (props) => {

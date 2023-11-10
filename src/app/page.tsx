@@ -10,7 +10,7 @@ import { ServerQuery } from "@/config/server-query";
 import { fetchPosts } from "./tanstack-query-example/fetch-posts";
 import { NextPageProps } from "@/types/globals";
 
-export default async function Home(props: NextPageProps) {
+async function Home(props: NextPageProps) {
   const queryServer = new ServerQuery();
 
   await queryServer.prefetchQuery({
@@ -26,3 +26,5 @@ export default async function Home(props: NextPageProps) {
     </ServerProvider>
   );
 }
+
+export default Home;

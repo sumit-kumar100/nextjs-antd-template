@@ -3,11 +3,23 @@
 import DataTable, { useDataTable } from "@/components/data-table";
 import { fetchPosts } from "./fetch-posts";
 import { getColumns } from "./columns";
-import { Box, Text, Flex } from "@/components/ui";
-import { withHooks } from "@/config/with-hooks";
-import { NextPageWithHookProps } from "@/types/globals";
+import {
+  Box,
+  Text,
+  Flex,
+  Form,
+  FormItem,
+  Input,
+  Button,
+  InputPassword,
+} from "@/components/ui";
+import { NextPageProps } from "@/types/globals";
+import { useQuery } from "@tanstack/react-query";
+import { useForm } from "@/components/ui/hooks";
 
-function TanstackExamplePosts({ useQuery }: NextPageWithHookProps) {
+function TanstackExamplePosts(props: NextPageProps) {
+  const [form] = useForm();
+
   const { pagination, filter } = useDataTable();
 
   const { data, isLoading } = useQuery({
@@ -43,8 +55,52 @@ function TanstackExamplePosts({ useQuery }: NextPageWithHookProps) {
           total: 100,
         }}
       />
+      <Form
+        form={form}
+        name="basic"
+        initialValues={{
+          remember: true,
+        }}
+        autoComplete="off"
+      >
+        <FormItem
+          label="Username"
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: "Please input your username!",
+            },
+          ]}
+        >
+          <Input />
+        </FormItem>
+
+        <FormItem
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}
+        >
+          <InputPassword />
+        </FormItem>
+        <FormItem
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </FormItem>
+      </Form>
     </Box>
   );
 }
 
-export default withHooks(TanstackExamplePosts);
+export default TanstackExamplePosts;

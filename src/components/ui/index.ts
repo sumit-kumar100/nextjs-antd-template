@@ -3,6 +3,7 @@
 import { CardMeta } from "./card";
 import { DatePicker, DateRangePicker } from "./date-picker";
 import { FormItem, FormList } from "./form";
+import { InputPassword } from "./input";
 import { Row, Col } from "./grid";
 import { Header, Footer, Sider, Content } from "./layout";
 import { PreviewGroup } from "./image";
@@ -109,6 +110,7 @@ export {
   Image,
   Input,
   InputNumber,
+  InputPassword,
   Layout,
   List,
   Mention,
