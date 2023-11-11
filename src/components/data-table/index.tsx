@@ -14,19 +14,42 @@ export type DataTableProps<T> = TableProps<T> & {
   pagination?: UsePagination & { total: number };
 };
 
+type PaginationType = "page" | "prev" | "next" | "jump-prev" | "jump-next";
+
 const DataTable: React.FC<DataTableProps<any>> = ({
   dataSource,
   columns,
   loading,
   pagination,
 }) => {
+  const itemRender = (
+    current: number,
+    type: "page" | "prev" | "next" | "jump-prev" | "jump-next",
+    originalElement: React.ReactNode,
+  ) => {
+    if (type === "jump-prev" || type === "jump-next") {
+      return React.cloneElement(
+        (originalElement as React.ReactElement).props.children,
+      );
+    }
+    return type === "page" ? <span>{current}</span> : originalElement;
+  };
+
+  const onChange = (page: number, pageSize: number) => {
+    if (pagination) {
+      pagination.onPaginationChange(pageSize, page);
+    }
+  };
+
+  const dataSourceWithKeys = dataSource?.map((row, key: number) => ({
+    ...row,
+    key,
+  }));
+
   return (
     <Fragment>
       <Table
-        dataSource={dataSource?.map((row, key: number) => ({
-          ...row,
-          key,
-        }))}
+        dataSource={dataSourceWithKeys}
         columns={columns}
         loading={loading}
         pagination={false}
@@ -38,9 +61,8 @@ const DataTable: React.FC<DataTableProps<any>> = ({
             pageSize={pagination.limit}
             total={pagination.total}
             showSizeChanger={false}
-            onChange={(page: number, pageSize: number) =>
-              pagination.onPaginationChange(pageSize, page)
-            }
+            onChange={onChange}
+            itemRender={itemRender}
           />
         </Flex>
       )}
