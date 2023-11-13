@@ -1,5 +1,3 @@
-"use client";
-
 import { CardMeta } from "./card";
 import { DatePicker, DateRangePicker } from "./date-picker";
 import { FormItem, FormList } from "./form";
@@ -15,7 +13,7 @@ import Accordion from "./accordion";
 import Affix from "./affix";
 import Anchor from "./anchor";
 import Alert from "./alert";
-import AutoComplete from "./autocomplete";
+import AutoComplete from "./auto-complete";
 import Avatar from "./avtar";
 import Box from "./box";
 import Button from "./button";
@@ -67,7 +65,6 @@ import Tour from "./tour";
 import Transfer from "./transfer";
 import Tree from "./tree";
 import TreeSelect from "./tree-select";
-import TextFilter from "../data-filter/text";
 import Upload from "./upload";
 import Watermark from "./watermark";
 
@@ -146,7 +143,6 @@ export {
   Tree,
   TreeSelect,
   Title,
-  TextFilter,
   Text,
   Upload,
   Watermark,

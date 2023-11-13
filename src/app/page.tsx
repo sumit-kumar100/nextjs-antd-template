@@ -9,7 +9,6 @@ import { ServerProvider } from "@/config/server-provider";
 import { ServerQuery } from "@/config/server-query";
 import { fetchPosts } from "./tanstack-query-example/fetch-posts";
 import { NextPageProps } from "@/types/globals";
-
 async function Home(props: NextPageProps) {
   const queryServer = new ServerQuery();
 

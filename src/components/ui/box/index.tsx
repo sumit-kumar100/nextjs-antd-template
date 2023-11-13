@@ -1,12 +1,10 @@
 "use client";
-import React from "react";
 
-export type AntdBoxProps = React.HTMLAttributes<HTMLDivElement>;
+import dynamic from "next/dynamic";
+import { BoxProps } from "./box";
 
-const Box: React.FC<AntdBoxProps> = (props) => {
-  return <div {...props} />;
-};
-
-export type BoxProps = AntdBoxProps;
+const Box = dynamic(() => import("./box"));
 
 export default Box;
+
+export type { BoxProps };

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { ClientProvider } from "@/config/client-provider";
-import { Flex, Layout, Header, Content } from "@/components/ui";
+import { Flex, Layout, Header, Content, Sider } from "@/components/ui";
 import { DEFUALT_THEME_COLOR } from "@/constants/globals";
 import { fontPoppins } from "@/utils/fonts-google";
 import NextImage from "@/components/next-image";
@@ -20,6 +20,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <ClientProvider>
           <Layout>
             <Content>
+              <Sider />
               <Header style={{ background: DEFUALT_THEME_COLOR }}>
                 <Flex align="center" style={{ height: "100%" }}>
                   <NextImage
