@@ -1,14 +1,15 @@
 "use client";
 
-import { Flex, Text, TextFilter } from "@/components/ui";
+import TextFilter from "@/components/data-filter/text";
+import { Flex, Text } from "@/components/ui";
 import { UseDataTable, DataTableColumnsType } from "@/components/data-table";
 
 type DataType = {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
+  key?: string;
+  name?: string;
+  age?: number;
+  address?: string;
+  tags?: string[];
 };
 
 export const getColumns = ({
@@ -29,7 +30,7 @@ export const getColumns = ({
         </Flex>
       ),
       dataIndex: "id",
-      render: (text) => <span>{text}</span>,
+      render: (text: any) => <span>{text}</span>,
     },
     {
       key: "title",
@@ -44,7 +45,7 @@ export const getColumns = ({
         </Flex>
       ),
       dataIndex: "title",
-      render: (text) => <span>{text.slice(0, 50)}</span>,
+      render: (text: any) => <span>{text.slice(0, 50)}</span>,
     },
     {
       key: "body",
@@ -59,7 +60,7 @@ export const getColumns = ({
         </Flex>
       ),
       dataIndex: "body",
-      render: (text) => <span>{text.slice(0, 50)}</span>,
+      render: (text: any) => <span>{text.slice(0, 50)}</span>,
     },
   ];
 };

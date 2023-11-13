@@ -1,3 +1,6 @@
-import type { ColumnType } from "antd/lib/table";
+import type { ColumnsType as AntdColumnsType } from "antd/es/table";
+import { TableProps as AntdTableProps } from "antd/lib/table";
 
-export type ColumnsType<T> = ColumnType<T>;
+export type TableProps<T> = AntdTableProps<T>;
+
+export type ColumnType<T> = AntdColumnsType<T>;

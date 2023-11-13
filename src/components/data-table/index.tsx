@@ -2,7 +2,7 @@
 
 import React, { Fragment } from "react";
 import { Table, Pagination, Flex } from "@/components/ui";
-import { TableProps, ColumnsType } from "@/components/ui/types";
+import { TableProps, ColumnType } from "@/components/ui/types";
 import type { UseDataTable } from "./useDataTable";
 import type { UsePagination } from "./usePagination";
 import type { UseFilter } from "./useFilter";
@@ -13,8 +13,6 @@ import useFilter from "./useFilter";
 export type DataTableProps<T> = TableProps<T> & {
   pagination?: UsePagination & { total: number };
 };
-
-type PaginationType = "page" | "prev" | "next" | "jump-prev" | "jump-next";
 
 const DataTable: React.FC<DataTableProps<any>> = ({
   dataSource,
@@ -70,7 +68,7 @@ const DataTable: React.FC<DataTableProps<any>> = ({
   );
 };
 
-export type DataTableColumnsType<T> = ColumnsType<T>;
+export type DataTableColumnsType<T> = ColumnType<T>;
 
 export default DataTable;
 
